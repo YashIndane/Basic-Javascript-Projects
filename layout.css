@@ -5,6 +5,12 @@
 	left : 550px;  
 }
 
+div.b_c > *:hover{
+	opacity: 0.7;
+}
+
+
+
 div.b_c > * {
 
 	position : absolute;
