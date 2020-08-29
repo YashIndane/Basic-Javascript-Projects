@@ -6,8 +6,32 @@ function update(a) {
 
 function checkAndAdd(z , z_n) {
 
-    if (z.slice(-1) != z_n){ x += z_n;} 
-	update(x);
+	var signOperations = '/*.%+-';
+    
+    if (z_n != '.') {
+
+        if (!signOperations.includes(x.slice(-1))){ x += z_n; } 
+    }
+
+    else {
+
+        if (x.includes('.')){
+
+    		var substr = x.slice(x.lastIndexOf('.') , x.length);
+    		
+            if (substr.split('').some(sub => '/*%+-'.includes(sub))) {
+            	
+    		    if (!signOperations.includes(x.slice(-1))){ x += z_n; }
+    		}
+    	}	
+
+    	else {
+
+    		   if (!signOperations.includes(x.slice(-1))){ x += z_n; }
+        }	
+    }
+
+    update(x);
 }
 
 function addNumbers(num) {
@@ -31,3 +55,5 @@ function output_result(){
 	var ans = eval(x);
 	update(ans);
 }
+
+
