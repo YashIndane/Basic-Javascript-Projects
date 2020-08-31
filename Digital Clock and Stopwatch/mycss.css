@@ -1,0 +1,26 @@
+.tbc{
+	position : absolute;
+	top : 100px;
+	left : 510px;
+	font-size : 65px;  
+	font-family : 'Impact';
+	color : rgb(77 , 77 , 255);
+}
+
+.date{
+	position : absolute;
+	top : 168px;
+	left : 817px;
+	font-size : 30px;  
+	font-family : 'Impact';
+	color : rgb(77 , 177 , 255);
+
+}
+
+.vL{
+	position : absolute;
+	top : 170px;
+	left: 795px;  
+	border-left : 1px solid gray;
+    height : 60px;
+}
