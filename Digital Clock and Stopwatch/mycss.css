@@ -7,6 +7,73 @@
 	color : rgb(77 , 77 , 255);
 }
 
+.set_button{
+	position : absolute; 
+	top : 175px;
+	left : 30px;
+	height : 30px;
+	width : 120px; 
+}
+
+.done_button{
+	position : absolute; 
+	top : 175px;
+	left : 160px;
+	height : 30px;
+	width : 60px; 
+
+}
+
+.p1{
+	position : absolute ;
+	top : 270px;
+	left : 532px;
+
+}
+
+.p2{
+
+	position : absolute ;
+	top : 270px;
+	left : 625px;
+
+}
+
+.p3{
+
+	position : absolute ;
+	top : 270px;
+	left : 718px;
+
+}
+
+.p4{
+	position : absolute ;
+	top : 293px;
+	left : 532px;
+	width: 24px;
+
+}
+
+.p5{
+	position : absolute ;
+	top : 293px;
+	left : 625px;
+	width: 24px;
+
+}
+
+.p6{
+	position : absolute ;
+	top : 293px;
+	left : 718px;
+	width: 24px;
+
+}
+
+
+
+
 .date{
 	position : absolute;
 	top : 168px;
