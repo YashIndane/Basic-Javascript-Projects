@@ -17,6 +17,21 @@ var months = [
               'Sep' , 'Oct' , 'Nov' , 'Dec'
              ];
 
+function cStartStop(){
+
+  var start = document.createElement('input');
+  start.setAttribute('class', 'st');
+  start.setAttribute('value', 'Start');
+
+  var stop = document.createElement('input');
+  stop.setAttribute('class', 'sp');
+  stop.setAttribute('value', 'Stop');
+
+  [start , stop].forEach(z => z.setAttribute('type' , 'button'));
+  [start , stop].forEach(z => document.body.appendChild(z));
+
+}             
+
 function createAdjustBut(){
 
   setTime_ = false;
