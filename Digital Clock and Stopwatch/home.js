@@ -7,7 +7,8 @@ var hours = currentDate.getHours();
 var date = currentDate.getDate();
 var month = currentDate.getMonth();
 var year = currentDate.getFullYear();
-var setTime_ = true; 
+var setTime_ = true;
+var setTime2_ = false;
 
 
 
@@ -17,15 +18,62 @@ var months = [
               'Sep' , 'Oct' , 'Nov' , 'Dec'
              ];
 
+function cRunTime(){
+
+          timeField.innerHTML = `${hours} : ${minutes} : ${secs}`;
+
+          secs = +secs , minutes = +minutes , hours = +hours ;
+          
+          secs = secs <= 58 ? secs + 1 : 0;
+          if (secs == 0) { 
+
+                minutes = minutes <= 58 ? minutes + 1 : 0;
+            }
+
+            if (minutes == 0 && secs == 0){
+
+              hours = hours <= 22 ? hours + 1 : 0;
+            }
+
+            [hours , minutes , secs] = ['' + hours , '' + minutes , '' + secs].map(
+
+            fld => fld.length == 1 ? '0' + fld : fld );
+
+        }             
+
+function runTime() {
+
+        dateField.innerHTML =  date + ' ' + months[month] + ' ' + year;
+
+        if (setTime_) { cRunTime(); }}   
+
+function runTime2() {
+
+        dateField.innerHTML =  date + ' ' + months[month] + ' ' + year;
+
+        if (setTime2_) { cRunTime(); }}           
+
 function cStartStop(){
+
+  timeField.innerHTML = '00 : 00 : 00';
+  setTime_ = false;
+  setTime2_ = false;
 
   var start = document.createElement('input');
   start.setAttribute('class', 'st');
   start.setAttribute('value', 'Start');
+  hours = '00' , minutes = '00' , secs = '00';
+  start.onclick = function (){ 
+              setTime2_ = true;
+              setInterval(runTime2 , 1000);}
 
   var stop = document.createElement('input');
+  stop.onclick = function(){ 
+    setTime2_ = false;
+    setTime_ = false; }
   stop.setAttribute('class', 'sp');
   stop.setAttribute('value', 'Stop');
+ 
 
   [start , stop].forEach(z => z.setAttribute('type' , 'button'));
   [start , stop].forEach(z => document.body.appendChild(z));
@@ -35,6 +83,7 @@ function cStartStop(){
 function createAdjustBut(){
 
   setTime_ = false;
+  setTime2_ = false;
 
   var but = document.createElement('input');
   but.setAttribute('class', 'p1');
@@ -128,36 +177,7 @@ function formatAndPlace(){
 
   timeField.innerHTML = `${hours} : ${minutes} : ${secs}`;}
 
-function runTime() {
 
-        dateField.innerHTML =  date + ' ' + months[month] + ' ' + year;
-
-        if (setTime_) { 
-
-          timeField.innerHTML = `${hours} : ${minutes} : ${secs}`;
-
-          secs = +secs , minutes = +minutes , hours = +hours ;
-        	
-        	secs = secs <= 58 ? secs + 1 : 0;
-        	if (secs == 0) { 
-
-                minutes = minutes <= 58 ? minutes + 1 : 0;
-            }
-
-            if (minutes == 0 && secs == 0){
-
-            	hours = hours <= 22 ? hours + 1 : 0;
-            }
-
-            [hours , minutes , secs] = ['' + hours , '' + minutes , '' + secs].map(
-
-            fld => fld.length == 1 ? '0' + fld : fld );
-
-        } 
-
-        else { timeField.innerHTML = `${hours} : ${minutes} : ${secs}`; }
-          
-}	
 
 setInterval(runTime, 1000);
 
